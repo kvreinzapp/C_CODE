@@ -16,4 +16,6 @@ int main(void)
     printf("and occupies %zd memory cells.\n",sizeof PRAISE);
 
     return 0;
+
+    
 }
