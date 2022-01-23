@@ -13,7 +13,8 @@ int main(void)
 
     printf("%.1e %.1e %.1e %.1e\n", n1, n2, n3, n4);
     printf("%ld %ld\n", n3, n4); 
-    printf("%ld %ld %ld %ld\n", n1, n2, n3, n4); //here's a interesting thing called passing argument, i will figure it out tomorrow202.1.22
+    printf("%ld %ld %ld %ld\n", n1, n2, n3, n4); 
+    //here's a interesting thing called passing argument, i will figure it out tomorrow202.1.22
 
     return 0;
 }
