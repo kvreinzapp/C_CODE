@@ -17,15 +17,18 @@ int main(void)
 
    printf("tell me the line :\n");
    scanf("%f", &y);
-   printf("the line in this way is %f \n",y);
+   printf("the line in this way is %f \n\n",y);
 
    printf("tell me the line :\n");
    scanf("%s", z);
-   printf("the line in this way is %s \n", z);
+   printf("the line in this way is %s \n\n", z);
+
+   printf("tell me the line :\n");
+   scanf("%c", &q);
+   printf("the line in this way is %c \n\n", q);
 
    printf("tell me the line :\n");
    scanf("%c", &q);
    printf("the line in this way is %c \n", q);
-
    return 0;
 }
