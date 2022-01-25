@@ -30,5 +30,9 @@ int main(void)
    printf("tell me the line :\n");
    scanf("%c", &q);
    printf("the line in this way is %c \n", q);
+
+   printf("IS %2.2e the same as %2.2f?\n",1201.0,1201.0);
+
+
    return 0;
 }
