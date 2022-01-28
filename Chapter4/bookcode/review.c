@@ -12,6 +12,7 @@ int main(void)
 
     printf("*%06d*\n",444);
 
+    //9th review question
     //For each of the following input lines, provide a scanf() statement to read it. Also
     //declare any variables or arrays used in the statement.
 
@@ -21,20 +22,23 @@ int main(void)
 
     float b,b1;
     scanf("%f %e",&b,&b1);
-    printf("%f %e\n", b, b1);
+    printf("%.2f %.2E\n", b, b1);
 
     char c[40];
     scanf("%s",c);
     printf("%s\n",c);
 
-    char d[40];
+    char action[40];
     int value;
-    scanf("%s %d", d,&value);
-    printf("%s %d\n", c,value);
+    scanf("%s %d", action,&value);
+    printf("%s %d\n", action,value);
 
     int val;
     scanf("%*s %d", &val);
     printf("%d\n", val);
+
+    //11-- a pretty good question
+    printf("The double type is %zd bytes..\n", sizeof(double));
 
     return 0;
 }
