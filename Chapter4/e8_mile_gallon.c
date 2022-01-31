@@ -15,13 +15,18 @@
 
 int main(void)
 {
-    float miles;
-    float gallons;
-    
+    //float miles;
+    //float gallons;
+    float range,oil;
+
     printf("What's the number of miles traveled?: ");
-    scanf("%f",miles);
+    scanf("%f",&range);
     printf("What's the number of gallons of gasoline consumed?: ");
-    scanf("%f",gallons);
+    scanf("%f",&oil);
+    
+    printf("In UAS,your oil waer is (miles per gallon): %.1f M/G\n",range/oil);
+    printf("In Europe,your oil wear is (liters-per-100-km): %.1f L/100KM\n",
+            LITTERS_PER_GALLON*oil/100*KILOMETERS_PER__MILE*range);
 
-
+    return 0;
 }
