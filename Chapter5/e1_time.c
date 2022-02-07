@@ -8,9 +8,9 @@ if a value for the time of 0 or less is entered.
 int main(void)
 {
     int min;
-    int h_min;
-
-    printf("Enter time in minutes here\n");
+    
+    printf("Enter time in minutes here");
+    printf("(Enter 0 or less to quit)\n");
     scanf("%d",&min);
 
     while (min>0)
