@@ -11,7 +11,7 @@ int main(void)
 {
     const int ROW=6;
     int row,i;
-    char ch='A';         //the secret is not ininial the ch in for loop
+    char ch='A';                           //the secret is not ininial the ch in for loop
 
     for ( row = 0; row < ROW; row++)
     {
