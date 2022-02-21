@@ -1,44 +1,26 @@
 /*
-第六章：编程练习 12
+第六章：编程练习 15
 */
 #include <stdio.h>
+#include <string.h>
 int main(void)
 {
-    int length;
-    double sum = 0.0;
-    printf("Enter the limit length: ");
-    scanf("%d", &length);
-    while (length > 0)
+    char data[256];
+    printf("Enter the char in a line : ");
+    int i = 0;
+    do
     {
-        sum = 0.0;
-        for (int i = 1; i <= length; i++)
-        {
-            sum = sum + 1.0 / i;
-        }
-        /* 计算 1 + 1/2 + 1/3 …… */
-        printf("The sum for 1.0 +...+ 1.0/%d.0 is %lf\n", length, sum);
-        sum = 0.0;
-        for (int i = 1; i <= length; i++)
-        {
-            if (i % 2 == 0)
-                sum = sum - 1.0 / i;
-            else
-                sum = sum + 1.0 / i;
-        }
-        /* 计算 1 - 1/2 + 1/3 - 1/4 ……*/
-        printf("The sum for 1.0 -...+ 1.0/%d.0 is %lf\n", length, sum);
-
-        sum = 0.0;
-        for (int i = 1; i <= length; i++)
-        {
-            if (i % 2 != 0)
-                sum = sum + 2 * 1.0 / i;
-        } /* 两个数列和，只计算奇数项，偶数项相抵消。*/
-        printf("The sum for 1.0 + 1.0+ 2.0/3.0+...+ 2.0/%d.0 is %lf\n", length, sum);
-
-        printf("Enter the limit length: ");
-        scanf("%d", &length);
+        scanf("%c", &data[i]);
+    } while (data[i] != '\n' && ++i);
+    /* 循环读取用户输入的字符，并保存之字符数组，直到用户输入回车符
+     * 循环未检查输入字符数量，特定情况可能会产生溢出*/
+    printf("The reverse char of the data: ");
+    for (i--; i >= 0; i--)
+    {
+        /* 原下标 i 为最后一个字符的下标，初始化时 i-- 目的删除最后一个换行符 */
+        printf("%c", data[i]);
     }
     printf("\nDone!\n");
     return 0;
 }
+
