@@ -16,4 +16,4 @@ int main(void)
     printf("That's all.\n");
 
     return 0;
-}    
+}
