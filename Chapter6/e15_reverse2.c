@@ -27,5 +27,7 @@ int main(void)
     //very important thing/* 原下标 i 为最后一个字符的下标，初始化时 i-- 目的删除最后一个换行符 */
         printf("%c",line[i]);
 
+        printf("\nDone!");
+
     return 0;
 }
