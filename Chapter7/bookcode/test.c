@@ -1,37 +1,53 @@
-/* skippart.c  -- uses continue to skip part of loop */
+// vowels.c -- uses multiple labels
 #include <stdio.h>
 int main(void)
 {
-    const float MIN = 0.0f;
-    const float MAX = 100.0f;
-    float score;
-    float total = 0.0f;
-    int n = 0;
-    float min = MAX;
-    float max = MIN;
+    char ch;
+    int a_ct, e_ct, i_ct, o_ct, u_ct;
+    a_ct = e_ct = i_ct = o_ct = u_ct = 0;
 
-    printf("Enter the first score (q to quit): ");
-    while (scanf("%f", &score) == 1)
+    printf("Enter some text; enter # to quit.\n");
+    while ((ch = getchar()) != '#')
     {
-        if (score < MIN || score > MAX)
+        switch (ch)
         {
-            printf("%0.1f is an invalid value. Try again: ",
-                   score);
-            continue; // jumps to while loop test condition
-        }
-        printf("Accepting %0.1f:\n", score);
-        min = (score < min) ? score : min;
-        max = (score > max) ? score : max;
-        total += score;
-        n++;
-        printf("Enter next score (q to quit): ");
-    }
-    if (n > 0)
-    {
-        printf("Average of %d scores is %0.1f.\n", n, total / n);
-        printf("Low = %0.1f, high = %0.1f\n", min, max);
-    }
-    else
-        printf("No valid scores were entered.\n");
+        case 'a':
+        case 'A':
+            a_ct++;
+            break;
+
+        case 'e':
+        case 'E':
+            e_ct++;
+            break;
+
+        case 'i':
+        case 'I':
+            i_ct++;
+            break;
+
+        case 'o':
+        case 'O':
+            o_ct++;
+            break;
+
+        case 'u':
+        case 'U':
+            u_ct++;
+            break;
+
+        default:
+            break;
+
+        } // end of switch
+
+    } // while loop end
+
+    printf("number of vowels:    A    E    I    O    U\n");
+
+    printf("                 %4d %4d %4d %4d %4d\n",
+
+           a_ct, e_ct, i_ct, o_ct, u_ct);
+
     return 0;
 }
