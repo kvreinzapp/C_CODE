@@ -9,14 +9,15 @@ int main(void)
     int ne=0;
     int ot=0;
 
-    printf("Input the text to analyse here: \n");
+    printf("Input the text to analyse here( # for exit): \n");
     while((ch=getchar())!='#')
     {
         if (ch==' ')
             sp++;
-        if(ch=='\n')
+        else if(ch=='\n')
             ne++;
-        ot++;   
+        else
+            ot++;   
     }
     printf("You have %d character, %d spaces, %d newlines.\n",ot,sp,ne);
     return 0;
