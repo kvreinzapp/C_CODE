@@ -13,25 +13,62 @@ and the taxable income and that then calculates the tax. Use a loop so that the 
 enter several tax cases.
 */
 #include<stdio.h>
+#define FIR_RATE 0.15
+#define SEC_RATE 0.28
+
+#define SINGLE   17850
+#define HEAD     23900
+#define M_JOINT  29750
+#define M_SEPA   14875
+
 void show_menu(void);
 
 int main(void)
 {
+    //Part0: hint
+    show_menu();
+    //Part1:
+    int input;
+    double money;
+    printf("Enter your choice here: ");
 
+    switch (input)
+    {
+    case 1:
+        money=SINGLE;
+        break;
+    case 2:
+        money = HEAD;
+        break;
+    case 3:
+        money = M_JOINT;
+        break;
+    case 4:
+        money = M_SEPA;
+        break;
+    case 5:
+        break;
+    default:
+        break;
+    }
+    printf("You chosed %d), and your tax strategy is 15%% of first $%f plus 28%% of excess"
+            ,input,money);
+    
 
+        return 0;
 }
 
 
 // Part-1: show menu
 void show_menu(void)
 {
-    for (int i = 0; i < 65; i++)
+    for (int i = 0; i < 48; i++)
         printf("*");
-    printf("\nEnter the number corresponding to the desired pay rate or action:\n");
-    printf("1) $8.75/hr                         2) $9.33/hr\n");
-    printf("3) $10.00/hr                        4) $11.20/hr\n");
+    printf("\nEnter the number corresponding to your identity.\n");
+    printf("1) Single                   2) Head of Household \n");
+    printf("3) Married, Joint           4) Married, Separate \n");
     printf("5) quit\n");
-    for (int i = 0; i < 65; i++)
+    for (int i = 0; i < 48; i++)
         printf("*");
     printf("\n");
 }
