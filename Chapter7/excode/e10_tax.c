@@ -101,5 +101,5 @@ void cal_dis(int input, double limit)
     tax = limit * FIR_RATE + ((money - limit) * SEC_RATE);
     printf("Your income is $%.2f, your tax is $%.2f, you earned $%.2f.\n"
             ,money,tax,(money-tax));
-    printf("Continue...\n\n");
+    printf("Continue...\n");
 }
