@@ -24,20 +24,21 @@ the charges.
 #define CHARGE_1 6.50
 #define CHARGE_2 14.0
 #define CHARGE_ADD 0.5
-#define POUNDS_1 5
-#define POUNDS_2 20
+#define POUND_1 5
+#define POUND_2 20
 
 int main(void)
 {
     char ch;
-    double per_pound;
     double a_pound,b_pound,c_pound;
+    double sum_p,a_sum_p,b_sum_p,c_sum_p;
     int counter=1;
+    double charge;
     printf("*******************************************************************\n");
     printf("Choose your vegetables, and enter the pounds you desired of the it.\n");
     printf("\'a\':artichokes             \'b\': beets            \'c\': carrots\n");
     printf("*******************************************************************\n");
-    printf("Enter here: 1) ");
+    printf("Enter vegetable here: 1) ");
     while (ch!='q')
     {
 
@@ -45,35 +46,72 @@ int main(void)
         switch (ch)
         {
         case 'a':
-            per_pound = ARTICHOKE;
             printf("Deisred pounds of artichokes: ");
-            if (1 != (scanf("%lf", &a_pound)))
-                break;
-            printf("Enter here: %d) ", ++counter);
+            if (1 == (scanf("%lf", &a_pound)))
+            {
+                a_sum_p+=a_pound;
+                printf("Total acrtichokes pounds: %.2f.\n", a_sum_p);
+            }else break;
+            printf("Enter vegetable here: %d) ", ++counter);
             break;
+
         case 'b':
-            per_pound = BEET;
             printf("Deisred pounds of beets: ");
-            if(1!=(scanf("%lf", &b_pound))) break;
-            printf("Enter here: %d) ", ++counter);
-            break;
-        case 'c':
-            per_pound = CARROT;
-            printf("Deisred pounds of carrots: ");
-            if (1 != (scanf("%lf", &c_pound)))
+            if (1 == (scanf("%lf", &b_pound)))
+            {
+                b_sum_p += b_pound;
+                printf("Total beets pounds: %.2f.\n", b_sum_p);
+            }
+            else
                 break;
-            printf("Enter here: %d) ", ++counter);
+            printf("Enter vegetable here: %d) ", ++counter);
             break;
+            
+        case 'c':
+            printf("Deisred pounds of carrots: ");
+            if (1 == (scanf("%lf", &c_pound)))
+            {
+                c_sum_p += c_pound;
+                printf("Total carrots pounds: %.2f.\n", c_sum_p);
+            }
+            else
+                break;
+            printf("Enter vegetable here: %d) ", ++counter);
+            break;
+
         case 'q':
             break;
+
         case '\n':
             break;
+
         default:
             printf("Please choose in the range of \'a\'\'b\'\'c\', try again.\n");
             printf("Try again here: ");
             break;
         }
     }
+    sum_p=a_sum_p+b_sum_p+c_sum_p;
+    charge = a_sum_p * ARTICHOKE + b_sum_p * BEET + c_sum_p * CARROT;
+    if (charge>=LIMIT)
+    {
+        charge-=charge*DISCOUNT;
+    }
+    
+    if (sum_p<=POUND_1)
+    {
+        
+    }
+    else if ((sum_p > POUND_1) && (sum_p <= POUND_2))
+    {
+        /* code */
+    }else
+    
+    
+    
+
+
+    
     
     
 }

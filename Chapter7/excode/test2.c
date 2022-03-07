@@ -10,9 +10,9 @@ int main(void)
     while (ch != 'q')
     {
         
-        if (ch=='\n')
+        if (ch!='\n')
         {
-            printf("Your input is %c", ch);
+            printf("Your input is %c\n", ch);
         
         }
         scanf("%c", &ch);
