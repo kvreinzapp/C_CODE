@@ -26,20 +26,23 @@ the charges.
 #define CHARGE_ADD 0.5
 #define POUND_1 5
 #define POUND_2 20
+void show_menu1(void);
+void show_menu2(void);
+
+char ch;
+double a_pound, b_pound, c_pound;
+double sum_p, a_sum_p, b_sum_p, c_sum_p;
+double shipping;
+int counter = 1;
+double charge;
 
 int main(void)
 {
-    char ch;
-    double a_pound,b_pound,c_pound;
-    double sum_p,a_sum_p,b_sum_p,c_sum_p;
-    int counter=1;
-    double charge;
-    printf("*******************************************************************\n");
-    printf("Choose your vegetables, and enter the pounds you desired of the it.\n");
-    printf("\'a\':artichokes             \'b\': beets            \'c\': carrots\n");
-    printf("*******************************************************************\n");
-    printf("Enter vegetable here: 1) ");
-    while (ch!='q')
+    //Part1: show meu1
+    show_menu1();
+
+    //Part2: choose and read
+    while (ch != 'q')
     {
 
         scanf("%c", &ch);
@@ -49,9 +52,11 @@ int main(void)
             printf("Deisred pounds of artichokes: ");
             if (1 == (scanf("%lf", &a_pound)))
             {
-                a_sum_p+=a_pound;
+                a_sum_p += a_pound;
                 printf("Total acrtichokes pounds: %.2f.\n", a_sum_p);
-            }else break;
+            }
+            else
+                break;
             printf("Enter vegetable here: %d) ", ++counter);
             break;
 
@@ -66,7 +71,7 @@ int main(void)
                 break;
             printf("Enter vegetable here: %d) ", ++counter);
             break;
-            
+
         case 'c':
             printf("Deisred pounds of carrots: ");
             if (1 == (scanf("%lf", &c_pound)))
@@ -91,27 +96,62 @@ int main(void)
             break;
         }
     }
-    sum_p=a_sum_p+b_sum_p+c_sum_p;
+
+    //Part3: calculate 
+    sum_p = a_sum_p + b_sum_p + c_sum_p;
     charge = a_sum_p * ARTICHOKE + b_sum_p * BEET + c_sum_p * CARROT;
-    if (charge>=LIMIT)
+    if (charge >= LIMIT)
     {
-        charge-=charge*DISCOUNT;
+        charge -= charge * DISCOUNT;
     }
-    
-    if (sum_p<=POUND_1)
+    if (sum_p != 0)
     {
-        
+
+        if (sum_p <= POUND_1)
+        {
+            shipping = CHARGE_1;
+        }
+        else if ((sum_p > POUND_1) && (sum_p <= POUND_2))
+        {
+            shipping = CHARGE_2;
+        }
+        else
+            shipping = CHARGE_2 + (sum_p - POUND_2) * CHARGE_ADD;
     }
-    else if ((sum_p > POUND_1) && (sum_p <= POUND_2))
+
+    //Part4: show the bill
+    
+    show_menu2();
+
+    return 0;
+}
+
+void show_menu1(void)
+{
+    printf("*******************************************************************\n");
+    printf("Choose your vegetables, and enter the pounds you desired of the it.\n");
+    printf("\'a\':artichokes             \'b\': beets            \'c\': carrots\n");
+    printf("*******************************************************************\n");
+    printf("Enter vegetable here: 1) ");
+}
+void show_menu2(void)
+{
+    printf("Here's your bill\n");
+    printf("**************************************************\n");
+    printf("Vegetable   Pounds_ordered   Cost   Cost_per_pound\n");
+    printf("Artichokes  %.2f             %.2f   %.2f\n", a_sum_p, a_sum_p * ARTICHOKE, ARTICHOKE);
+    printf("Beets       %.2f             %.2f   %.2f\n", b_sum_p, b_sum_p * BEET, BEET);
+    printf("Carrots     %.2f             %.2f   %.2f\n", c_sum_p, c_sum_p * CARROT, CARROT);
+    printf("**************************************************\n");
+    printf("Total pounds                        %.2f\n", sum_p);
+    printf("Total cost                          %.2f\n", charge);
+    printf("Shipping charges                    %.2f\n", shipping);
+    printf("Grand total                         %.2f\n", charge + shipping);
+    if (charge >= LIMIT)
     {
-        /* code */
-    }else
-    
-    
-    
-
-
-    
-    
-    
+        printf("Discount           %.2f\n", charge * DISCOUNT);
+    }
+    else
+        printf("(Cost is less than $100,no disount)\n");
+    printf("**************************************************\n");
 }
