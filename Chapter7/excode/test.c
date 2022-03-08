@@ -15,6 +15,7 @@ pound, the pounds ordered, and the cost for that order for each vegetable, the t
 of the order, the discount (if there is one), the shipping charge, and the grand total of all
 the charges.
 */
+//
 #include <stdio.h>
 #define ARTICHOKE 2.05
 #define BEET 1.15
