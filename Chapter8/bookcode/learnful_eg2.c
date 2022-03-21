@@ -62,6 +62,7 @@
           continue;
       return ch;
   }
+  
   int get_int(void)
   {
       int input;

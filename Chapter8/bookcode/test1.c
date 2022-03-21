@@ -1,56 +1,98 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdbool.h>
 
-char get_coice(void);
+double sum_squares(long a,long b);
+long get_long(void);
+bool bad_limits(long begin, long end,
+                long low, long high);
 
 int main(void)
 {
-    char ch;
-    int input;
+    const long MIN=-10000000L;
+    const long MAX=+10000000L;
+    long start;
+    long stop;
+    double answer;
 
-    printf("Enter the letter of your choice:\n");
-    printf("a. advice               b. bell\n");
-    printf("c.  count               q. quit\n");
-    scanf("%c", &ch);
-    while (ch != 'q')
+    printf("This program computes the sum of the squares of "
+           "integers in a range.\nThe lower bound should not "
+           "be less  than -10000000 and\nthe upper bound "
+           "should not be more than +10000000.\nEnter the "
+           "limits (enter 0 for both limits to quit):\n"
+           "lower limit: ");
+    start=get_long();
+    printf("upper limit: ");
+    stop=get_long();
+    while((start!=0)||(stop!=0))
     {
-
-        printf("Enter the letter of your choice:\n");
-        printf("a. advice               b. bell\n");
-        printf("c.  count               q. quit\n");
-        scanf("%c", &ch);
-        switch (ch)
+        if (bad_limits(start,stop,MIN,MAX))
         {
-        case 'a':
-            printf("Buy low, sell high.\n");
-            break;
-        case 'b':
-            printf("\a");
-            break;
-        case 'c':
-            printf("Count how far? Enter an integer:");
-            scanf("%d", &input);
-            break;
-
-        default:
-            printf("%c is not an integer.\n",ch);
-            printf("Please enter an integer value, such as 25, -178, or 3:");
-            break;
+            printf("Please try again.\n");
         }
+        else
+        {
+            answer=sum_squares(start,stop);
+            printf("The sum of the suqares of the integers ");
+            printf("from %ld to %ld is %g\n",
+                    start,stop,answer);
+        }
+        printf("Enter the limits (enter 0 for both"
+                "limits to quit):\n");
+        printf("lower limit: ");
+        start=get_long();
+        printf("upper limits: ");
+        stop=get_long(); 
     }
-
-
+    printf("Done!\n");
     return 0;
 }
 
-char get_coice(void)
+double sum_squares(long a, long b)
 {
-    int ch;
-    printf("Enter the letter of your choice:\n");
-    printf("a. advice               b. bell\n");
-    printf("c.  count               q. quit\n");
-    ch=getchar();
-    while ((ch < 'a') || (ch > 'c') && (ch != 'q'))
+    double total=0;
+    long i;
+
+    for(i=a;i<=b;i++)
+        total += i * i; // total += (double)i * (double)i;
+
+    return total;
+}
+
+long get_long(void)
+{
+    long input;
+    char ch;
+
+    while (scanf("%ld", &input) != 1)
     {
-        printf("Please respond with a, b, c, or q.\n");
+        while ((ch = getchar()) != '\n')
+            putchar(ch);
+        printf(" is not a integer.\nPlease enter an");
+        printf("integer value, such as 25, -178, or 3: ");
     }
+    return input;
+}
+
+bool bad_limits(long begin, long end,
+                long low, long high)
+{
+    bool not_good=false;
+    if (begin>end)
+    {
+        printf("%ld isn't smaller than %ld.\n", begin, end);
+        not_good = true;
+    }
+    if (begin<low||end<low)
+    {
+        printf("Values must be %ld or greater.\n", low);
+        not_good = true;
+    }
+    if (begin>high||end>high)
+    {
+        printf("Values must be %ld or less.\n", high);
+        not_good = true;
+    }
+    return not_good;
+    
+    
 }

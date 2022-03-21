@@ -12,6 +12,7 @@ bool bad_limits(long begin, long end,
 // calculate the sum of the squares of the integers
 // a through b
 double sum_squares(long a, long b);
+
 int main(void)
 {
   const long MIN = -10000000L; // lower limit to range
