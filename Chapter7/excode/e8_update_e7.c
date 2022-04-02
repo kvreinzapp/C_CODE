@@ -33,7 +33,7 @@ int main(void)
     int input;
     while (input!=5)
     {
-        // Part1: Hint
+        // Part1: Hint     //a better way 
         show_menu();
         printf("Enter your choice here: ");
         scanf("%d", &input);
@@ -57,6 +57,7 @@ int main(void)
         case 5:
             break;
         default:
+            getchar(); // i figureit by myself, but this kind of regardless. 2022 3.22
             printf("You should enter the integer through 1 to 5.\n");
             printf("Please enter again.\n");
             continue;
