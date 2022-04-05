@@ -24,18 +24,13 @@ void exchange(double *p1, double *p2)
 }
 void sort(double *p1, double *p2, double *p3)
 {
-    double max, middle, min, temp;
-    max = *p1;
-    middle = *p2;
-    min = *p3;
-    while (!((max > middle) && (middle > min)))
+    
+    while (!((*p1 > *p2) && (*p2 > *p3)))
     {
-        if (middle > max)
-            exchange(&max, &middle);
-        if (min > middle)
-            exchange(&min, &middle);
+        if (*p2 > *p1)
+            exchange(p1, p2);
+        if (*p3 > *p2)
+            exchange(p2, p3);
     }
-    *p1 = max;
-    *p2 = middle;
-    *p3 = min;
+    
 }
