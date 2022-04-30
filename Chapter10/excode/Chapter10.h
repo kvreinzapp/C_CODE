@@ -7,7 +7,6 @@ void show_arr(const double s[], int n)
     putchar('\n');
 }
 
-
 // Function to find the biggest number in the array
 double fd_most(const double s[], int n, int l)
 {
@@ -33,21 +32,23 @@ void reverse(double array[], int number)
 }
 
 // copy 1—D array ,use array notation
-void copy_arr(double t[], double s[], int n)
+void copy_arr(double t[], const double s[], int n)
 {
     for (int i = 0; i < n; i++)
         t[i] = s[i];
 }
 
 // copy 1—D array ,use pointer notation
-void copy_ptr(double *t, double *s, int n)
+void copy_ptr(double *t, const double *s, int n)
 {
     for (int i = 0; i < n; i++)
         *(t + i) = *(s + i);
 }
 
 // copy 1—D array ,use pointers
-void copy_ptrs(double *t, double *s_first, double *s_last)
+// Pay attention that when you call the function, the s_last + sth must
+//  over the array
+void copy_ptrs(double *t, const double *s_first, double *s_last)
 {
     for (int i = 0; i < (s_last - s_first); i++)
         *(t + i) = *(s_first + i);
