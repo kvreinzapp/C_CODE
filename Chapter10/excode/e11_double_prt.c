@@ -9,23 +9,29 @@ the number of rows as arguments.
 #define ROWS 3
 #define COLS 5
 
-void double(double s[][COLS], int rows);
-int main(void) {
+void double_2Darray(double s[][COLS], int rows);
+int main(void)
+{
 
-  // initialize a new VLA array
-  int rs = 3;
-  int cs = 5;
-  double source[rs][cs];
-  for (int i = 0; i < rs; i++)
-    for (int j = 0; j < cs; j++)
-      source[i][j] = i * j + j;
-  show_VLA_2D(rs, cs, source);
+    // initialize a new VLA array
+    int rs = 3;
+    int cs = 5;
+    double source[rs][cs];
+    for (int i = 0; i < rs; i++)
+        for (int j = 0; j < cs; j++)
+            source[i][j] = i * j + j;
+    show_VLA_2D(rs, cs, source);
 
-  return 0;
+    // double it
+    double_2Darray(source, rs);
+    show_VLA_2D(ROWS, COLS, source);
+
+    return 0;
 }
 
-void double_2Darray(double s[][COLS], int rows) {
-  for (int i = 0; i < rows; i++)
-    for (int j = 0; j < COLS; j++)
-      s[i][j] = 2 * s[i][j];
+void double_2Darray(double s[][COLS], int rows)
+{
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < COLS; j++)
+            s[i][j] = 2 * s[i][j];
 }

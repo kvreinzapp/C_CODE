@@ -68,7 +68,7 @@ void copy_VLA_2D(int rows, int cols, double t[rows][cols], const double s[rows][
 // Function to show N*M VLA array
 void show_VLA_2D(int rows, int cols, const double s[rows][cols])
 {
-    printf("This is your array: \n");
+    printf("This is your array now: \n");
     for (int r = 0; r < rows; r++)
     {
         for (int c = 0; c < cols; c++)
