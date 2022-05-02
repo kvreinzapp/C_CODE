@@ -33,5 +33,5 @@ void double_2Darray(double s[][COLS], int rows)
 {
     for (int i = 0; i < rows; i++)
         for (int j = 0; j < COLS; j++)
-            s[i][j] = 2 * s[i][j];
+            s[i][j] *= 2;
 }

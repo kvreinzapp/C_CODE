@@ -32,17 +32,16 @@ int main(void)
 // if label==0,return nothing , print the average of each month
 float sum_rain(int rows, int cols, float s[rows][cols], int label)
 {
-    float subtot = 0;
-    float total = 0;
-    printf("%f %f\n", subtot, total);
+    float subtot, total;
 
     int year = 0;
+    int y, m;
 
     if (label == 1)
     {
-        for (int y = 0; y < YEARS; y++)
+        for (y = 0; y < YEARS; y++)
         {
-            for (int m = 0; m < MONTHS; m++)
+            for (m = 0, subtot = 0; m < MONTHS; m++) // subtot =0 must exsist here
             {
                 subtot += s[y][m];
             }
@@ -53,9 +52,9 @@ float sum_rain(int rows, int cols, float s[rows][cols], int label)
     }
     else if (label == 0)
     {
-        for (int m = 0; m < MONTHS; m++)
+        for (m = 0; m < MONTHS; m++)
         {
-            for (int y = 0; y < YEARS; y++)
+            for (y = 0, subtot = 0; y < YEARS; y++)
             {
                 subtot += s[y][m];
             }
