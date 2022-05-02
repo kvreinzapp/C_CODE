@@ -53,3 +53,28 @@ void copy_ptrs(double *t, const double *s_first, double *s_last)
     for (int i = 0; i < (s_last - s_first); i++)
         *(t + i) = *(s_first + i);
 }
+
+// Function to copy N*M VLA array
+void copy_VLA_2D(int rows, int cols, double t[rows][cols], const double s[rows][cols])
+{
+    for (int r = 0; r < rows; r++)
+    {
+        for (int c = 0; c < cols; c++)
+        {
+            t[r][c] = s[r][c];
+        }
+    }
+}
+// Function to show N*M VLA array
+void show_VLA_2D(int rows, int cols, const double s[rows][cols])
+{
+    printf("This is your array: \n");
+    for (int r = 0; r < rows; r++)
+    {
+        for (int c = 0; c < cols; c++)
+        {
+            printf("%g ", s[r][c]);
+        }
+        putchar('\n');
+    }
+}

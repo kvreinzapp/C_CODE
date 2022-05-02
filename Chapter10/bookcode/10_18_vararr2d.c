@@ -9,17 +9,15 @@ int main(void)
     int i, j;
     int rs = 3;
     int cs = 10;
-    
+
     int junk[ROWS][COLS] = {
-        {2, 4, 6, 8},
+        {2, 4, 6, 8},   
         {3, 5, 7, 9},
-        {12, 10, 8, 6}
-    };
+        {12, 10, 8, 6}};
 
     int morejunk[ROWS - 1][COLS + 2] = {
         {20, 30, 40, 50, 60, 70},
-        {5, 6, 7, 8, 9, 10}
-    };
+        {5, 6, 7, 8, 9, 10}};
 
     int varr[rs][cs]; // VLA
     for (i = 0; i < rs; i++)
