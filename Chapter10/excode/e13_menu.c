@@ -14,19 +14,43 @@ and returns the average of a one-dimensional array; use a loop to call this func
 times. The other tasks should take the entire array as an argument, and the functions
 performing tasks “c” and “d” should return the answer to the calling program.
 */
+#include "Chapter10.h"
 #include <stdio.h>
 #define ROWS 3
 #define COLS 5
 
+void input_array(double ar[][COLS], int n);
+double row_average(double ar[][COLS], int n);
+
 int main(void)
 {
-    double subinput_A[COLS];
-    double subinput_B[COLS];
-    double subinput_B[COLS];
-
     double input[ROWS][COLS];
-    for (int r = 0; r < ; i++)
+    input_array(input, ROWS);
+    show_VLA_2D(ROWS, COLS, input);
+    return 0;
+}
+
+void input_array(double ar[][COLS], int n)
+{
+    for (int i = 0; i < n; i++)
     {
-        /* code */
+        printf("Enter 5 double numbers seprated by enter\n");
+        for (int j = 0; j < COLS; j++)
+        {
+            scanf("%lf", &ar[i][j]);
+        }
+    }
+}
+
+double row_average(double ar[][COLS], int n)
+{
+    double subtot;
+    for (int i = 0; i < n; i++)
+    {
+        printf("Enter 5 double numbers seprated by enter\n");
+        for (int j = 0, subtot = 0; j < COLS; j++)
+        {
+            subtot += ar[i][j];
+        }
     }
 }

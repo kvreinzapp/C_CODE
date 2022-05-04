@@ -1,66 +1,44 @@
+/*Write a program that prompts the user to enter three sets of five  double numbers each.
+(You may assume the user responds correctly and doesn’t enter non-numeric data.) The
+program should accomplish all of the following:
+
+a.Store the information in a 3×5 array.
+b.Compute the average of each set of five values.
+c.Compute the average of all the values.
+d.Determine the largest value of the 15 values.
+e.Report the results.
+
+Each major task should be handled by a separate function using the traditional C
+approach to handling arrays. Accomplish task “b” by using a function that computes
+and returns the average of a one-dimensional array; use a loop to call this function three
+times. The other tasks should take the entire array as an argument, and the functions
+performing tasks “c” and “d” should return the answer to the calling program.
+*/
+#include "Chapter10.h"
 #include <stdio.h>
-#define MONTHS 12 // number of months in a year
-#define YEARS 5   // number of years of data
-float sum_rain(int rows, int cols, float s[rows][cols], int label);
+#define ROWS 3
+#define COLS 5
+
+void get_set(double ar[], int n, int o);
 int main(void)
 {
-    // initializing rainfall data for 2010 - 2014
-    float rain[YEARS][MONTHS] = {
-        {4.3, 4.3, 4.3, 3.0, 2.0, 1.2, 0.2, 0.2, 0.4, 2.4, 3.5, 6.6},
-        {8.5, 8.2, 1.2, 1.6, 2.4, 0.0, 5.2, 0.9, 0.3, 0.9, 1.4, 7.3},
-        {9.1, 8.5, 6.7, 4.3, 2.1, 0.8, 0.2, 0.2, 1.1, 2.3, 6.1, 8.4},
-        {7.2, 9.9, 8.4, 3.3, 1.2, 0.8, 0.4, 0.0, 0.6, 1.7, 4.3, 6.2},
-        {7.6, 5.6, 3.8, 2.8, 3.8, 0.2, 0.0, 0.0, 0.0, 1.3, 2.6, 5.2}};
-    int year, month;
-    float subtot, total;
+    double set1[COLS], set2[COLS], set3[COLS];
+    double set[ROWS][COLS];
 
-    printf(" YEAR    RAINFALL  (inches)\n");
-    total = sum_rain(YEARS, MONTHS, rain, 1);
-    printf("\nThe yearly average is %.1f inches.\n\n", total / YEARS);
-
-    printf("MONTHLY AVERAGES:\n\n");
-    printf(" Jan  Feb  Mar  Apr  May  Jun  Jul  Aug  Sep  Oct ");
-    printf(" Nov  Dec\n");
-
-    sum_rain(YEARS, MONTHS, rain, 0);
-    printf("\n");
+    get_set(set1, COLS, 1);
+    get_set(set2, COLS, 2);
+    get_set(set3, COLS, 3);
 
     return 0;
 }
 
-// if label==1,return the total, print the total of every year
-// if label==0,return nothing , print the average of each month
-float sum_rain(int rows, int cols, float s[rows][cols], int label)
+void get_set(double ar[], int n, int o)
 {
-    float subtot = 0;
-    float total = 0;
-    printf("%f %f\n", subtot, total);
-
-    int year = 0;
-
-    if (label == 1)
+    printf("Enter your set%d here: \n", o);
+    for (int i = 0; i < COLS; i++)
     {
-        for (int y = 0; y < YEARS; y++)
-        {
-            for (int m = 0; m < MONTHS; m++)
-            {
-                subtot += s[y][m];
-            }
-            printf("%5d %15.1f\n", 2010 + year++, subtot);
-            total += subtot;
-        }
-        return total;
+        scanf("%lf", (ar + i));
     }
-    else if (label == 0)
-    {
-        for (int m = 0; m < MONTHS; m++)
-        {
-            for (int y = 0; y < YEARS; y++)
-            {
-                subtot += s[y][m];
-            }
-            printf("%4.1f ", subtot / YEARS);
-        }
-        // return total;
-    }
+    printf("Your set%d is :", o);
+    show_arr(ar, COLS);
 }
