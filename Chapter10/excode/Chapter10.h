@@ -8,6 +8,7 @@ void show_arr(const double s[], int n)
 }
 
 // Function to find the biggest number in the array
+// l==1, means find the biggest,while l==0 means the smallest
 double fd_most(const double s[], int n, int l)
 {
     double result = s[0];
@@ -15,6 +16,24 @@ double fd_most(const double s[], int n, int l)
         if (l ? (s[i] > result) : (s[i] < result))
             result = s[i];
     return result;
+}
+
+// Function to find the biggest number of 2D array
+// l==1, means find the biggest,while l==0 means the smallest
+void fd_2Dmost(int rows, int cols, const double s[rows][cols], int l)
+{
+    double result = s[0][0];
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            if (l ? (s[i][j] > result) : (s[i][j] < result))
+            {
+                result = s[i][j];
+            }
+        }
+    }
+    printf("%s number is %g\n", l ? "Largest" : "Smallest", result);
 }
 
 // reverse the content of a double array
@@ -78,3 +97,17 @@ void show_VLA_2D(int rows, int cols, const double s[rows][cols])
         putchar('\n');
     }
 }
+
+// Create a 2D array.it seems that i did it in a wrong way
+// double *create_array(int r, int c)
+// {
+//     double ar[r][c];
+//     for (int i = 0; i < r; i++)
+//     {
+//         for (int j = 0; j < c; j++)
+//         {
+//             ar[i][j] = 1;
+//         }
+//     }
+//     return ar;
+// }

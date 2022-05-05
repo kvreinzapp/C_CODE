@@ -20,13 +20,31 @@ performing tasks “c” and “d” should return the answer to the calling pro
 #define COLS 5
 
 void input_array(double ar[][COLS], int n);
-double row_average(double ar[][COLS], int n);
+void row_average(double ar[][COLS], int n);
+void all_average(double ar[][COLS], int n);
+void fd_tradi_largest(double s[][COLS], int n);
 
 int main(void)
 {
     double input[ROWS][COLS];
+    int label = 0;
+
+    // get the 2D array
     input_array(input, ROWS);
+
+    // show your input
     show_VLA_2D(ROWS, COLS, input);
+
+    // Calculate the average of each line
+    row_average(input, ROWS);
+    // Calculate the average of all
+    all_average(input, ROWS);
+
+    // Determine the largest value of the 15 values.
+    fd_2Dmost(ROWS, COLS, input, label);
+    // printf("The old way:");
+    // fd_tradi_largest(input, ROWS);
+
     return 0;
 }
 
@@ -42,15 +60,46 @@ void input_array(double ar[][COLS], int n)
     }
 }
 
-double row_average(double ar[][COLS], int n)
+void row_average(double ar[][COLS], int n)
 {
     double subtot;
-    for (int i = 0; i < n; i++)
+    int i, j;
+
+    for (i = 0; i < n; i++)
     {
-        printf("Enter 5 double numbers seprated by enter\n");
-        for (int j = 0, subtot = 0; j < COLS; j++)
+        for (j = 0, subtot = 0; j < COLS; j++)
         {
             subtot += ar[i][j];
         }
+        printf("The average of row%d is %g\n", i, subtot / COLS);
     }
+}
+
+void all_average(double ar[][COLS], int n)
+{
+    double total = 0;
+    printf("%g", total);
+    int i, j;
+
+    for (i = 0; i < n; i++)
+        for (j = 0; j < COLS; j++)
+            total += ar[i][j];
+
+    printf("The average of all is %g\n", total / (COLS * ROWS));
+}
+
+void fd_tradi_largest(double s[][COLS], int n)
+{
+    double largest = s[0][0];
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < COLS; j++)
+        {
+            if (s[i][j] > largest)
+            {
+                largest = s[i][j];
+            }
+        }
+    }
+    printf("Largest number is %g", largest);
 }
