@@ -1,19 +1,15 @@
 // strings1.c
 #include <stdio.h>
-#define MSG "I am a symbolic string constant."
-#define MAXLENGTH 81
 int main(void)
 {
-    char words[MAXLENGTH] = "I am a string in an array.";
-    const char *pt1 = "Something is pointing at me.";
+    // char line[81];
+    // while (gets(line))
+    //     puts(line);
 
-    puts("Here are some strings:");
-    puts(MSG);
-    puts(words);
-    puts(pt1);
+    char line[81];
+    while (fgets(line, 81, stdin))
 
-    words[8] = 'p';
-    puts(words);
+        fputs(line, stdout);
 
     return 0;
 }
