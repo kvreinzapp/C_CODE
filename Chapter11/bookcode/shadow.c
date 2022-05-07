@@ -1,15 +1,32 @@
-// strings1.c
 #include <stdio.h>
+#include <string.h>
+#include "Chapter11.h"
+
+#define SIZE 30
+#define BUGSIZE 13
+
 int main(void)
 {
-    // char line[81];
-    // while (gets(line))
-    //     puts(line);
+    char flower[SIZE];
+    char addon[] = "s smell like old shoes.";
+    char bug[BUGSIZE];
+    int available;
 
-    char line[81];
-    while (fgets(line, 81, stdin))
+    puts("What's your favorite flower?");
+    s_gets(flower, SIZE);
 
-        fputs(line, stdout);
+    if ((strlen(addon) + strlen(flower) + 1) <= SIZE)
+        strcat(flower, addon);
 
+    puts(flower);
+
+    puts("What is your favorite bug?");
+    s_gets(bug, BUGSIZE);
+
+    available = BUGSIZE - strlen(bug) - 1;
+
+    strncat(bug, addon, available);
+
+    puts(bug);
     return 0;
 }
