@@ -9,7 +9,7 @@ int main(void)
     const char *orig = WORDS;
     char copy[SIZE] = "Be the best that you can be.";
     char *ps;
-
+    
     puts(orig);
     puts(copy);
     ps = strcpy(copy + 7, orig);
