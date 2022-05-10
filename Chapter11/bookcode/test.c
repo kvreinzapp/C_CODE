@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include "Chapter11.h"
 
 #define SIZE 30
 #define BUGSIZE 13
@@ -17,6 +16,7 @@ char *s_gets(char *st, int n)
     int i = 0;
 
     ret_val = fgets(st, n, stdin);
+
     if (ret_val)
     {
         while ((st[i] != '\n') && (st[i] != '\0'))
@@ -25,7 +25,7 @@ char *s_gets(char *st, int n)
         }
         if (st[i] == '\n')
         {
-            st[i] == '\0';
+            st[i] = '\0';
         }
         else
         {
