@@ -3,7 +3,7 @@
 #include <string.h> /* declares strncpy() */
 #include "Chapter11.h"
 #define SIZE 40
-#define LIM 2
+#define LIM 5
 
 #define TARGSIZE 7
 
