@@ -1,0 +1,37 @@
+降重(5.20第二次查重):
+  1)修改单句:
+    `第一次改就要尽量改好`
+    ✘ 找出单句，高亮重复词 @started(22-05-17 18:21) @cancelled(22-05-17 18:23) @wasted(2m6s)`标红重复极多，无需再高亮，基本就是复制来的`
+    ☐ 逐句修改单句即可 @started(22-05-17 20:42)
+  2)修改大段:
+    `大段是否好修改`
+    ☐ 找出关键字
+    ☐ 根据关键字多找几篇论文
+
+
+
+
+
+降重之后:
+  math:
+    ☐ 完成武忠祥强化2
+    ☐ 复习武忠祥强化1
+  408:
+      ☐ CSAPP-Read Chapter1
+论文完善:
+  ☐ 修改数据集， 使之准确率在90%以上
+  ☐ 重新画图
+
+Archive:
+  ✔ Cprimerplus Chapter11 review @done(22-05-17 14:06) @project(降重之后.408)
+  ✔ 图像分割摘抄 @done(22-05-13 15:25) @project(论文完善)
+  ✔ 新建数据集 试验能否影响准确率 @done(22-05-13 15:25)大样本准确率降低 @project(论文完善)
+  ✔ 算子和自适应能不能用， 试一下 @done(22-05-13 10:06) @project(论文完善)
+  ✔ 图像增多有没有，试一下能不能降低准确率 @done(22-05-13 21:32) @project(论文完善)
+  ✔ 降重 @done(22-05-14 16:04) @project(论文完善)
+  ✔ 磨损到8036,脱落8059到8130 @done(22-05-13 15:25) @project(论文完善)
+  ✔ 重新标号公式 @done(22-05-17 14:06) @project(论文完善)
+  ✔ CSAPP read as much as you can @started(22-05-11 08:00) @done(22-05-11 08:12) @lasted(12m52s)      @project(forenoon)
+  ✔ write something @done(22-05-11 07:59) @project(afternoon)
+  ✔ Cprimerplus P499--p504 /@started(22-05-10 15:25) @done(22-05-10 16:14) @lasted(49m10s) @project(afternoon)
+  ✔ Cprimerplus Review Quesyion 1--4 @started(22-05-10 16:36) @done(22-05-10 17:00) @lasted(24m30s) @project(afternoon)
