@@ -17,7 +17,7 @@ char *s_gets(char *st, int n)
             while (getchar() != '\n')
                 continue;
     }
-    return 0;
+    return ret_val;
 }
 
 char *s_get_ptr(char *st, int n) // using the pointer notation, eliminate the variable i
@@ -39,7 +39,7 @@ char *s_get_ptr(char *st, int n) // using the pointer notation, eliminate the va
             while (getchar() != '\n')
                 continue;
     }
-    return 0;
+    return ret_val;
 }
 
 // A version of s_get using strchr()
