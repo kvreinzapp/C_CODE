@@ -1,8 +1,14 @@
-/* Programming Exercise 11-1 */
+/*
+Design and test a function that fetches the next n characters from input (including
+blanks, tabs, and newlines), storing the results in an array whose address is passed as an
+argument.
+*/
 #include <stdio.h>
-#define LEN 5
+#include <string.h>
+#include "Chapter11.h"
 
-char *getnchar(char *str, int n);
+#define LEN 5
+char *getnchar(char *st, int n);
 
 int main(void)
 {
@@ -10,12 +16,6 @@ int main(void)
     char *check;
 
     check = getnchar(input, LEN - 1);
-    // if (check == NULL)
-    //     puts("Input failed.");
-    // else
-    //     puts(input);
-    // puts("Done.\n");
-
     while (check == NULL)
     {
         puts("Input invalid");
@@ -35,12 +35,12 @@ char *getnchar(char *str, int n)
     for (i = 0; i < n; i++)
     {
         ch = getchar();
-        if (ch != EOF)
+        if (str[i] != EOF)
             str[i] = ch;
         else
             break;
     }
-    if (ch == EOF)
+    if (str[i] == EOF)
         return NULL;
     else
     {

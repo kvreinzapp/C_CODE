@@ -1,6 +1,6 @@
 /* Programming Exercise 11-1 */
 #include <stdio.h>
-#define LEN 5
+#define LEN 10
 
 char *getnchar(char *str, int n);
 
@@ -10,19 +10,11 @@ int main(void)
     char *check;
 
     check = getnchar(input, LEN - 1);
-    // if (check == NULL)
-    //     puts("Input failed.");
-    // else
-    //     puts(input);
-    // puts("Done.\n");
-
-    while (check == NULL)
-    {
-        puts("Input invalid");
-        check = getnchar(input, LEN - 1);
-    }
-    puts(input);
-    puts("Done");
+    if (check == NULL)
+        puts("Input failed.");
+    else
+        puts(input);
+    puts("Done.\n");
 
     return 0;
 }
