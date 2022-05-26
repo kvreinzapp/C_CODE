@@ -1,17 +1,21 @@
 /*
-Design and test a function that fetches the next n characters from input (including
-blanks, tabs, and newlines), storing the results in an array whose address is passed as an
+Design and test a function that fetches the next n characters from input (including blanks,
+tabs, and newlines), storing the results in an array whose address is passed as an
 argument.
 */
+
 #include <stdio.h>
+#define LEN 5
+
 char *fetch(char *ar, int n);
 int main(void)
 {
     char *sign;
-    char source[40];
+    char source[LEN];
 
     puts("Enter here:");
-    sign = fetch(source, 5);
+    sign = fetch(source, LEN);
+
     if (sign == NULL)
     {
         printf("Invalid input\n");
@@ -42,5 +46,11 @@ char *fetch(char *ar, int n)
     if (ar[i] == EOF) // only one branch
     {
         return NULL;
+    }
+    else
+    {
+        printf("Now i is %d", i);
+        ar[i] = '\0';
+        return ar;
     }
 }

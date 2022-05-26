@@ -1,6 +1,6 @@
 /* Programming Exercise 11-1 */
 #include <stdio.h>
-#define LEN 10
+#define LEN 5
 
 char *getnchar(char *str, int n);
 
@@ -36,7 +36,7 @@ char *getnchar(char *str, int n)
         return NULL;
     else
     {
-        str[i] = '\0';
+        // str[i] = '\0';
         return str;
     }
 }
