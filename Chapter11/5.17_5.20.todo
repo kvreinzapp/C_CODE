@@ -4,14 +4,17 @@ Lost in paradise:
   ☐ net approach
   math:
     ☐ 完成武忠祥强化2
-    ☐ 复习武忠祥强化1
+    ✔ 复习武忠祥强化1 @done(22-05-27 14:18)
   408:
-      ☐ CSAPP-Read Chapter1  
+      ✔ CSAPP-Read Chapter1 @done(22-05-27 14:18)
       ☐ reread Chapter11 
       ☐ continue to read Chapter12
-  cprimerplus:
-    ☐ shadowex1 @started(22-05-26 11:15)
+  English:
+    ✔ read text1 @done(22-05-26 19:20)
+    ☐ read explaination with eyes and mouth @started(22-05-26 19:20)
+
 Archive:
+  ✔ shadowex1 @started(22-05-26 11:15) @done(22-05-26 18:48) @lasted(7h33m25s) @project(Lost in paradise.cprimerplus)
   ✔ 通识讲义 @done(22-05-19 18:49) @project(Lost in paradise)
   ✔ networking @done(22-05-19 19:15) @project(Lost in paradise)
   ✘ 修改数据集， 使之准确率在90%以上 @cancelled(22-05-23 07:46) @project(Lost in paradise.论文完善)
