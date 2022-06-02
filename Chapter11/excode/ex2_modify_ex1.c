@@ -56,13 +56,3 @@ char *stop_char(char ar[], int n) // just a for //if EOF, break and return NULLï
         return ar;
     }
 }
-
-void branch(char sth)
-{
-    if (sth == ' ')
-        printf("I met a blank.\n");
-    else if (sth == '\n')
-        printf("I met a newline.\n");
-    else if (sth == '\t')
-        printf("I met a tab.\n");
-}
