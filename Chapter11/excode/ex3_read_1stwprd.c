@@ -8,9 +8,14 @@ char *read_1st_word(char ar[]);
 int main(void)
 {
     char input[20];
+    char *cat;
+
     puts("Enter a line here:");
-    read_1st_word(input);
-    puts(input);
+    while ((cat = read_1st_word(input)) != NULL)
+    {
+        puts(input);
+    }
+    puts("Done.\n");
 
     return 0;
 }
@@ -18,20 +23,25 @@ int main(void)
 char *read_1st_word(char ar[])
 {
     int i = 0;
+    ar[i] = getchar();
     while ((ar[i] != ' ') && (ar[i] != '\n') && (ar[i] != '\t'))
     {
+        i++;
         ar[i] = getchar();
+
         if (ar[i] == EOF)
             break;
-        i++;
     }
+
     if (ar[i] == EOF)
-    {
         return NULL;
-    }
     else
     {
         ar[i] = '\0';
+        while (getchar() != '\n')
+            continue;
         return ar;
     }
+
+    // }
 }
