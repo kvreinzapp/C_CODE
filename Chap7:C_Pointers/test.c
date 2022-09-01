@@ -1,17 +1,14 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
+#include "mytool.h"
 
-void print2DArray(unsigned int *ar, int row, int col)
+#define NUMS 5
+int main(void)
 {
-    for (size_t i = 0; i < row; i++)
-    {
-        for (size_t j = 0; j < col; j++)
-        {
-            // printf("%d", ar[i][j]);
-        }
-    }
+    int ar[NUMS] = {4, 47, 32, 65, 31};
+    bubble_sort(ar, NUMS);
+    print_1dArray(ar, NUMS);
 }
+// Use gdb to find out where is wrong
 
 void print_1dArray(int ar[], int rows)
 {
