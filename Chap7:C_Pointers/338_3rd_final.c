@@ -33,6 +33,15 @@ int main(void)
     card display[ROWS * COLS];
 
     // Pick from ordinary and update display array
+    void pick_and_push(card * ordinary, card * display, int n);
+    pick_and_push(ordinary, display, ROWS * COLS);
+
+    // Print my display
+    print_ordinary(display, ROWS * COLS);
+}
+
+void pick_and_push(card *ordinary, card *display, int n)
+{
     srand(time(NULL));
     int randomNum;
     size_t i = 0;
@@ -49,9 +58,6 @@ int main(void)
             i++;
         }
     }
-
-    // Print my display
-    print_ordinary(display, ROWS * COLS);
 }
 
 void init_ordinary(card name[], int rows)

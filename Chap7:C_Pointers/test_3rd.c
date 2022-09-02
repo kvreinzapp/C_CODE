@@ -5,7 +5,7 @@
 #include "mytool.h"
 
 #define ROWS 4
-#define COLS 13
+#define COLS 4
 
 typedef struct
 {
@@ -29,8 +29,10 @@ int main(void)
     map_to_card(ordinary, ROWS * COLS);
     print_ordinary(ordinary, ROWS * COLS);
 
-    // Initial my display array    // Do I need to initial it?
-    card display[ROWS * COLS];
+    // Initial my display array
+    // Do I need to initial it?
+    int display[ROWS * COLS];
+    // print_1dArray(display, ROWS * COLS);
 
     // Pick from ordinary and update display array
     srand(time(NULL));
@@ -42,24 +44,27 @@ int main(void)
         randomNum = rand() % (ROWS * COLS);
         if (0 == ordinary[randomNum].picked)
         {
-            display[i].order = ordinary[randomNum].order;
-            display[i].suit = ordinary[randomNum].suit;
-            display[i].number = ordinary[randomNum].number;
+            display[i] = ordinary[randomNum].order;
             ordinary[randomNum].picked = 1;
             i++;
         }
     }
 
     // Print my display
-    print_ordinary(display, ROWS * COLS);
+    print_1dArray(display, ROWS * COLS);
+    // bubble_sort(display, ROWS * COLS);
+    // print_1dArray(display, ROWS * COLS);
 }
 
 void init_ordinary(card name[], int rows)
 {
     for (size_t i = 0; i < ROWS * COLS; i++)
     {
+
         name[i].order = i;
         name[i].picked = 0;
+        name[i].suit = NULL;
+        name[i].number = NULL;
     }
 }
 
@@ -67,7 +72,9 @@ void print_ordinary(card name[], int rows)
 {
     for (size_t i = 0; i < ROWS * COLS; i++)
     {
-        printf("%-2s-%-5s ", name[i].suit, name[i].number);
+        // printf("%2d ", name[i].order);
+        printf("%-7s-%s ", name[i].suit, name[i].number);
+        // printf("%s ", name[i].number);
         if (0 == (i + 1) % 13)
         {
             puts("");
@@ -96,23 +103,19 @@ void map_to_card(card *name, int n)
         switch (name[i].order / 13)
         {
         case 0:
-            // name[i].suit = "Club";
-            name[i].suit = "C";
+            name[i].suit = "Club";
             name[i].number = map_to_num(name[i].order % 13);
             break;
         case 1:
-            // name[i].suit = "Diamond";
-            name[i].suit = "D";
+            name[i].suit = "Diamond";
             name[i].number = map_to_num(name[i].order % 13);
             break;
         case 2:
-            // name[i].suit = "Heart";
-            name[i].suit = "H";
+            name[i].suit = "Heart";
             name[i].number = map_to_num(name[i].order % 13);
             break;
         case 3:
-            // name[i].suit = "Spade";
-            name[i].suit = "S";
+            name[i].suit = "Spade";
             name[i].number = map_to_num(name[i].order % 13);
             break;
         default:

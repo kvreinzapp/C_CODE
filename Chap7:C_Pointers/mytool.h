@@ -24,9 +24,9 @@ void print_1dArray(int ar[], int rows)
 
 bool ordered(int *ar, int n)
 {
-    for (size_t i = 0; i < n; i++)
+    for (size_t i = 1; i < n; i++)
     {
-        if (ar[i] > ar[i + 1])
+        if (ar[i - 1] > ar[i])
         {
             return false;
         }
@@ -34,22 +34,22 @@ bool ordered(int *ar, int n)
     return true;
 }
 
-void exchange_2_val(int x, int y)
+void exchange_2_val(int *x, int *y)
 {
-    int temp = x;
-    x = y;
-    y = temp;
+    int temp = *x;
+    *x = *y;
+    *y = temp;
 }
 
 void bubble_sort(int *ar, int n)
 {
     while (!ordered(ar, n))
     {
-        for (size_t i = 0; i < n; i++)
+        for (size_t i = 1; i < n; i++)
         {
-            if (ar[i] > ar[i + 1])
+            if (ar[i - 1] > ar[i])
             {
-                exchange_2_val(ar[i], ar[i + 1]);
+                exchange_2_val(&ar[i - 1], &ar[i]);
             }
         }
     }
