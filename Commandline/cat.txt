@@ -1,0 +1,11 @@
+dog
+cat
+tiger
+fox
+cow
+lion
+fox1
+fox2
+3fox
+Fox
+Fox2

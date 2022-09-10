@@ -1,0 +1,6 @@
+dog
+lion
+cat
+rabbit
+bug
+sheep
