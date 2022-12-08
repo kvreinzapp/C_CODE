@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "compare": "c",
+        "concepts": "c",
+        "typeinfo": "c"
+    }
+}
