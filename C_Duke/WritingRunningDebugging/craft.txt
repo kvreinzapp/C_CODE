@@ -1,0 +1,6 @@
+yes, I do define a custom rule like:
+%.o: %.c
+	gcc $(CFLAGS) -c $< 
+It seems that this rule replace the default rule:
+%.o: %.c
+	$(COMPILE.c) $(OUTPUT_OPTION) $<

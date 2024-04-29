@@ -1,0 +1,182 @@
+9c9
+< # Make data base, printed on Thu Apr 25 10:18:33 2024
+---
+> # Make data base, printed on Mon Apr 29 10:10:33 2024
+30c30
+< CURDIR := /Users/klausvonreinherz/Documents/CodingBySelf/C_CODE/C_Duke/WritingRunningDebugging
+---
+> CURDIR := /Users/klausvonreinherz/Documents/CodingBySelf/C_CODE/C_Duke/WritingRunningDebugging/learn_make
+51,52c51,52
+< # makefile
+< MAKEFILE_LIST := 
+---
+> # makefile (from `makefile', line 1)
+> MAKEFILE_LIST :=  makefile
+82a83,84
+> # makefile (from `makefile', line 1)
+> CFLAGS = -std=gnu99 -pedantic -Wall
+106c108
+< SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.2pankyzS12/Listeners
+---
+> SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.I7o8gmEZVa/Listeners
+120c122
+< PWD = /Users/klausvonreinherz/Documents/CodingBySelf/C_CODE/C_Duke/WritingRunningDebugging
+---
+> PWD = /Users/klausvonreinherz/Documents/CodingBySelf/C_CODE/C_Duke/WritingRunningDebugging/learn_make
+166c168
+< .DEFAULT_GOAL := 
+---
+> .DEFAULT_GOAL := myProgram
+168c170
+< TERM_SESSION_ID = w0t0p0:F04000E6-2D8A-4084-92D1-004B8DB719A8
+---
+> TERM_SESSION_ID = w0t0p0:A844CE67-AED4-4317-932B-2D92ABAA68CC
+182c184
+< OLDPWD = /Users/klausvonreinherz/Documents/CodingBySelf/C_CODE/C_Duke/WritingRunningDebugging/Files
+---
+> OLDPWD = /Users/klausvonreinherz/Documents/CodingBySelf/C_CODE/C_Duke/WritingRunningDebugging
+222c224
+< ITERM_SESSION_ID = w0t0p0:F04000E6-2D8A-4084-92D1-004B8DB719A8
+---
+> ITERM_SESSION_ID = w0t0p0:A844CE67-AED4-4317-932B-2D92ABAA68CC
+278c280
+< # Load=132/1024=13%, Rehash=0, Collisions=10/151=7%
+---
+> # Load=133/1024=13%, Rehash=0, Collisions=11/155=7%
+287c289
+< # . (device 16777231, inode 19416331): 10 files, 60 impossibilities.
+---
+> # . (device 16777230, inode 20806013): 13 files, 43 impossibilities.
+290c292
+< # 10 files, 60 impossibilities in 3 directories.
+---
+> # 13 files, 43 impossibilities in 3 directories.
+293a296,300
+> %.o: %.c
+> #  commands to execute (from `makefile', line 5):
+> 	gcc $(CFLAGS) -c $<
+> 	
+> 
+316,319d322
+< %.o: %.c
+< #  commands to execute (built-in):
+< 	$(COMPILE.c) $(OUTPUT_OPTION) $<
+< 
+776a780,790
+> oneFile.o: oneFile.c oneHeader.h, someHeader.h
+> #  Implicit rule search has been done.
+> #  Implicit/static pattern stem: `oneFile'
+> #  Last modified 2024-04-27 13:11:55
+> #  File has not been updated.
+> # variable set hash-table stats:
+> # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+> #  commands to execute (from `makefile', line 5):
+> 	gcc $(CFLAGS) -c $<
+> 	
+> 
+806,815d819
+< Makefile:
+< #  A default, MAKEFILES, or -include/sinclude makefile.
+< #  Implicit rule search has been done.
+< #  File does not exist.
+< #  File has been updated.
+< #  Failed to be updated.
+< # variable set hash-table stats:
+< # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+< 
+< # Not a target:
+848d851
+< #  A default, MAKEFILES, or -include/sinclude makefile.
+850c853
+< #  File does not exist.
+---
+> #  Last modified 2024-04-29 10:03:36
+852c855
+< #  Failed to be updated.
+---
+> #  Successfully updated.
+954a958,972
+> anotherHeader: anotherHeader.h someHeader.h
+> #  Implicit rule search has not been done.
+> #  Modification time never checked.
+> #  File has not been updated.
+> 
+> myProgram: oneFile.o anotherFile.o
+> #  Implicit rule search has not been done.
+> #  Last modified 2024-04-27 13:11:56
+> #  File has not been updated.
+> # variable set hash-table stats:
+> # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+> #  commands to execute (from `makefile', line 3):
+> 	gcc -o myProgram oneFile.o anotherFile.o
+> 	
+> 
+1009a1028,1036
+> oneFile.c:
+> #  Implicit rule search has been done.
+> #  Last modified 2024-04-27 13:11:50
+> #  File has been updated.
+> #  Successfully updated.
+> # variable set hash-table stats:
+> # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+> 
+> # Not a target:
+1077a1105,1112
+> oneHeader.h,:
+> #  Implicit rule search has been done.
+> #  File does not exist.
+> #  File has not been updated.
+> # variable set hash-table stats:
+> # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+> 
+> # Not a target:
+1086c1121
+< .ch:
+---
+> someHeader.h:
+1092,1099c1127,1130
+< GNUmakefile:
+< #  A default, MAKEFILES, or -include/sinclude makefile.
+< #  Implicit rule search has been done.
+< #  File does not exist.
+< #  File has been updated.
+< #  Failed to be updated.
+< # variable set hash-table stats:
+< # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+---
+> .ch:
+> #  Implicit rule search has not been done.
+> #  Modification time never checked.
+> #  File has not been updated.
+1161a1193,1198
+> anotherHeader.h:
+> #  Implicit rule search has not been done.
+> #  Modification time never checked.
+> #  File has not been updated.
+> 
+> # Not a target:
+1182a1220,1225
+> # Not a target:
+> anotherFile.o:
+> #  Implicit rule search has not been done.
+> #  Modification time never checked.
+> #  File has not been updated.
+> 
+1184c1227
+< # Load=75/1024=7%, Rehash=0, Collisions=445/1794=25%
+---
+> # Load=81/1024=8%, Rehash=0, Collisions=420/1676=25%
+1191,1194c1234,1237
+< # # of strings in strcache: 0
+< # # of strcache buffers: 0
+< # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
+< # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
+---
+> # # of strings in strcache: 1
+> # # of strcache buffers: 1
+> # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+> # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+1196c1239
+< # Finished Make data base on Thu Apr 25 10:18:33 2024
+---
+> # Finished Make data base on Mon Apr 29 10:10:33 2024
