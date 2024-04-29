@@ -1,8 +1,15 @@
 CC = gcc
 CFLAGS = -std=gnu99 -pedantic -Wall
-myProgram: oneFile.o anotherFile.o
-	gcc -o myProgram oneFile.o anotherFile.o
-.PHONY: clean
+SRCS = $(wildcard *.c)
+OBJS = $(patsubst %.c, %.o, $(SRCS))
+myProgram: $(OBJS)
+	gcc -o myProgram $(OBJS)
+.PHONY: clean depend
 clean:
-	rm -f myProgram *.o *.c~ *.h~
+	rm -f myProgram *.o *.c~ *.h~ *.bak *.txt
+depend:
+	makedepend  $(SRCS)
 # DO NOT DELETE
+
+anotherFile.o: anotherHeader.h someHeader.h
+oneFile.o: oneHeader.h someHeader.h

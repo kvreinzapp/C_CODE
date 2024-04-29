@@ -1,8 +1,0 @@
-CC = gcc
-CFLAGS = -std=gnu99 -pedantic -Wall
-myProgram: oneFile.o anotherFile.o
-	gcc -o myProgram oneFile.o anotherFile.o
-.PHONY: clean
-clean:
-	rm -f myProgram *.o *.c~ *.h~
-# DO NOT DELETE
