@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #define MONTHPERYEAR 12
 
-typedef struct {
+struct _retire_info {
   int months;
   double contribution;
   double rate_of_return;
-} retire_info; // My have trouble here for finder?
+};
+
+typedef struct _retire_info retire_info;
 
 void retirement(int startAge, double initial, retire_info working,
                 retire_info retired) {
@@ -36,6 +38,7 @@ void retirement(int startAge, double initial, retire_info working,
       }
     }
   }
+  return;
 }
 
 int main(void) {
@@ -52,4 +55,6 @@ int main(void) {
   retired.contribution = 4000;
   retired.rate_of_return = 0.01 / 12;
   retirement(startAge, initial, working, retired);
+
+  return 0;
 }
