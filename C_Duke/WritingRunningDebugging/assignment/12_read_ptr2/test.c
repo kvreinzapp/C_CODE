@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int f(int ** r, int ** s) {
-  int temp = ** r;
+int f(int **r, int **s) {
+  int temp = **r;
   int temp2 = **s;
-  int * z = *r;
+  int *z = *r;
   *r = *s;
   *s = z;
-  printf("**r = %d\n",**r);
-  printf("**s = %d\n",**s);
+  printf("**r = %d\n", **r);
+  printf("**s = %d\n", **s);
   *z += 3;
   **s -= 8;
   **r -= 19;
@@ -18,8 +18,8 @@ int f(int ** r, int ** s) {
 int main(void) {
   int a = 80;
   int b = 12;
-  int * p = &a;
-  int * q = &b;
+  int *p = &a;
+  int *q = &b;
   int x = f(&p, &q);
   printf("x = %d\n", x);
   printf("*p = %d\n", *p);
