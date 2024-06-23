@@ -20,12 +20,12 @@ int main(void) {
   int array14[] = {-1, 0, 1, -5, 2, 3};
   int array15[] = {100, 99, 98, 97, 96, 0, -1};
 
-  if (1 != maxSeq(array1, 0)) {
+  if (0 != maxSeq(array1, 0)) {
     puts("Failed in array1");
     return EXIT_FAILURE;
   }
 
-  if (1 != maxSeq(array2, sizeof(array2) / sizeof(int))) {
+  if (0 != maxSeq(array2, sizeof(array2) / sizeof(int))) {
     puts("Failed in array2");
     return EXIT_FAILURE;
   }
@@ -33,23 +33,23 @@ int main(void) {
     puts("Failed in array3");
     return EXIT_FAILURE;
   }
-  if (1 != maxSeq(array4, sizeof(array4) / sizeof(int))) {
+  if (0 != maxSeq(array4, sizeof(array4) / sizeof(int))) {
     puts("Failed in array4");
     return EXIT_FAILURE;
   }
-  if (5 != maxSeq(array5, sizeof(array5) / sizeof(int))) {
+  if (3 != maxSeq(array5, sizeof(array5) / sizeof(int))) {
     puts("Failed in array5");
     return EXIT_FAILURE;
   }
-  if (5 != maxSeq(array6, sizeof(array6) / sizeof(int))) {
+  if (2 != maxSeq(array6, sizeof(array6) / sizeof(int))) {
     puts("Failed in array6");
     return EXIT_FAILURE;
   }
-  if (3 != maxSeq(array7, sizeof(array7) / sizeof(int))) {
+  if (2 != maxSeq(array7, sizeof(array7) / sizeof(int))) {
     puts("Failed in array7");
     return EXIT_FAILURE;
   }
-  if (1 != maxSeq(array8, sizeof(array8) / sizeof(int))) {
+  if (2 != maxSeq(array8, sizeof(array8) / sizeof(int))) {
     puts("Failed in array8");
     return EXIT_FAILURE;
   }
@@ -61,11 +61,11 @@ int main(void) {
     puts("Failed in array10");
     return EXIT_FAILURE;
   }
-  if (4 != maxSeq(array11, sizeof(array11) / sizeof(int))) {
+  if (2 != maxSeq(array11, sizeof(array11) / sizeof(int))) {
     puts("Failed in array11");
     return EXIT_FAILURE;
   }
-  if (1 != maxSeq(array12, sizeof(array12) / sizeof(int))) {
+  if (0 != maxSeq(array12, sizeof(array12) / sizeof(int))) {
     puts("Failed in array12");
     return EXIT_FAILURE;
   }
@@ -77,7 +77,7 @@ int main(void) {
     puts("Failed in array14");
     return EXIT_FAILURE;
   }
-  if (1 != maxSeq(array15, sizeof(array15) / sizeof(int))) {
+  if (0 != maxSeq(array15, sizeof(array15) / sizeof(int))) {
     puts("Failed in array15");
     return EXIT_FAILURE;
   }

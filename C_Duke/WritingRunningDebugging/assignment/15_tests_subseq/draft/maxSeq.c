@@ -2,9 +2,6 @@
 #include <stdlib.h>
 
 size_t maxSeq(int *array, size_t n) {
-  if (n == 0) {
-    return EXIT_FAILURE;
-  }
   int l = 0;
   int max = 0;
   for (size_t i = 0; i < n; i++) {
@@ -22,6 +19,9 @@ size_t maxSeq(int *array, size_t n) {
       max = max > l ? max : l;
       l = 0;
     }
+  }
+  if (max == 1) {
+    return 0;
   }
   return max;
 }
