@@ -1,0 +1,16 @@
+2c2d5s7h9cJsQc;4d4s8h0c2dJs9c //one pair
+2c2d5s5h7c9d0s;4d4s8h8c3c9sJs //two pair
+2c2d2s7h9cJsQs;4d4c4s7c9sJsQs //three of a kind
+2c3d4s5c6cJsQs;4d5s6c7d8sJs2d //straight
+2c3d4s5c6cJsQs;7d8s9s0cJs2d4s //straight connected
+Ac2d3s4h5c9d0c;4s5h6d7c8dJsQh //straight with ace low
+2c4c6c8c0cJsQh;3d5d7d9d0dJsQh // flush
+2c2d2s3h3s9sJh;4d4s4h5s5cJsQh // full house
+2c2s2d2h9cJsKh;3d3s3h3c7d8s0c // four of a kind
+2c3c4c5c6c0sJd;7d8d9d0dJd2s4h // staright flush
+3c4c5s6s7s8sJs;AhKhQsJs0s5s4s // straight+flush 
+QdJd0d9s9h8h8s;2d2s3h3sQsJsJd // duplicated
+KsKc2d4s9s0sJs;KsKc2d2c0s9s4d // onepaire vs twopair
+9s8s7d7s6s5c5s;KdQsJs0c8h9s5s // ? 
+
+
