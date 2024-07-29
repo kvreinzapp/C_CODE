@@ -115,7 +115,7 @@ that you will need to write:
  - ssize_t  find_secondary_pair(deck_t * hand,
     			        unsigned * match_counts,
 			        size_t match_idx) ;
-   When you have a hand with 3 of a kind or a pair,
+   When you have a hand with 3 of a kind **or a pair**(so need to be >1),
    you will want to look and see if there is another
    pair to make the hand into a full house or
    or two pairs.  This function takes in

@@ -86,176 +86,148 @@ ssize_t find_secondary_pair(deck_t *hand, unsigned *match_counts,
   return -1; // No secondary pair found
 }
 
-int no_pair_and_staright(deck_t *hand, size_t start, size_t end) {
-  assert(start < end);
-  for (size_t i = start; i < end; i++) {
-    if (hand->cards[i]->value != hand->cards[i + 1]->value + 1) {
-      return 0;
+int is_ace_low_straight_at_five(deck_t *hand, size_t index, suit_t fs) {
+  int straightTally = 2;
+  int currentCardValue = 5;
+  for (size_t i = index + 1; i < hand->n_cards; i++) {
+    if (straightTally == 5) {
+      return -1;
     }
-  }
-  return 1;
-}
-int no_pair_and_flush(deck_t *hand, size_t start, size_t end, suit_t fs) {
-  assert(start < end);
-  for (size_t i = start; i <= end; i++) {
-    if (hand->cards[i]->suit != fs) {
-      return 0;
+    if (hand->cards[i]->value == currentCardValue) {
+      continue;
     }
-  }
-  return 1;
-}
-
-int find_pair_between(deck_t *hand, size_t start, size_t end) {
-  int pairIndex = -1;
-  for (size_t i = start; i < end; i++) {
-    if (hand->cards[i]->value == hand->cards[i + 1]->value) {
-      pairIndex = i;
-    }
-  }
-  return pairIndex;
-}
-int at_least_in_one_pair(deck_t *hand, size_t position, suit_t fs) {
-  if (hand->cards[position]->suit == fs ||
-      hand->cards[position + 1]->suit == fs) {
-    return 1;
-  }
-  return 0;
-}
-/// int flush_between(deck_t *hand, size_t start, size_t end, suit_t fs) {
-///   if (fs == NUM_SUITS) {
-///     return 0;
-///   } else {
-///     for (size_t i = start; i <= end; i++) {
-///       if (hand->cards[i]->suit != fs) {
-///         return 0;
-///       }
-///     }
-///     return 1;
-///   }
-/// }
-
-int is_n_length_straight_at(deck_t *hand, size_t index, suit_t fs, int n) {
-  if (fs == NUM_SUITS) {
-    int straightTallyNum = 0;
-    int batteryNum = 4;
-    for (size_t i = index; i < hand->n_cards - 1; i++) {
-      if (hand->cards[i]->value == hand->cards[i + 1]->value) {
-        batteryNum++;
+    if (hand->cards[i]->value == currentCardValue - 1) {
+      if (fs == NUM_SUITS || hand->cards[i]->suit == fs) {
+        straightTally++;
+        currentCardValue--;
+      } else {
         continue;
-      } else if (hand->cards[i]->value == hand->cards[i + 1]->value + 1) {
-        batteryNum--;
-        straightTallyNum++;
-      } else {
-        batteryNum--;
       }
-      if (batteryNum == 0) {
-        break;
-      }
-    }
-    if (straightTallyNum == n - 1) {
-      return 1;
     } else {
-      return 0;
+      break;
     }
+  }
+
+  if (straightTally == 5) {
+    return -1;
   } else {
-    int straightTallyFs = 0;
-    int flushTally = 0;
-    int sameSuitFlag = 0;
-    int batteryFs = 4;
-    for (size_t i = index; i < hand->n_cards - 1; i++) {
-      if (hand->cards[i]->value == hand->cards[i + 1]->value + 1) {
-        straightTallyFs++;
-        batteryFs--;
-        if (hand->cards[i]->suit == fs || hand->cards[i + 1]->suit == fs) {
-          if (batteryFs == 0) { // ?
-            sameSuitFlag = 0;
-          } else {
-            flushTally++;
-            sameSuitFlag = 0;
-          }
-        } else {
-          if (sameSuitFlag == 1) {
-            flushTally++;
-            sameSuitFlag = 0;
-          }
-        }
-      } else if (hand->cards[i]->value == hand->cards[i + 1]->value) {
-        batteryFs++;
-        if (hand->cards[i]->suit == fs || hand->cards[i + 1]->suit == fs) {
-          sameSuitFlag = 1;
-        }
-      } else {
-        batteryFs--;
-      }
-      if (batteryFs == 0) {
-        break;
-      }
-    }
-    if (straightTallyFs == n - 1 && flushTally == n - 1) {
-      return 1;
-    } else {
-      return 0;
-    }
+    return 0;
   }
 }
 
 int is_ace_low_straight_at(deck_t *hand, size_t index, suit_t fs) {
-  if (fs == NUM_SUITS) {
-    int idxOfFiveNum = 0; // should be -1 to represent the invalid
-    if (hand->cards[index]->value == VALUE_ACE) {
-      for (size_t i = index + 1; i < hand->n_cards; i++) {
-        if (hand->cards[i]->value == 5) {
-          idxOfFiveNum = i;
-        }
+  int currentCardValue = hand->cards[index]->value;
+  //  if (currentCardValue == 5) { // Its ok
+  //    return is_ace_low_straight_at_five(hand, index, fs);
+  //  }
+  if (currentCardValue == VALUE_ACE) {
+    for (size_t i = index + 1; i < hand->n_cards; i++) {
+      if (hand->cards[i]->value == currentCardValue) {
+        continue;
       }
-      if (idxOfFiveNum != 0 &&
-          is_n_length_straight_at(hand, idxOfFiveNum, fs, 4)) {
-        return 1;
-      } else {
-        return 0;
+      if (hand->cards[i]->value == 5) {
+        return is_ace_low_straight_at_five(hand, i, fs);
       }
-    } else {
-      return 0;
-    }
-  } else {
-    int idxOfFiveFs = 0;
-    if (hand->cards[index]->value == VALUE_ACE &&
-        hand->cards[index]->suit == fs) {
-      for (size_t i = index + 1; i < hand->n_cards; i++) {
-        if (hand->cards[i]->value == 5) {
-          idxOfFiveFs = i;
-        }
-      }
-      if (idxOfFiveFs != 0 &&
-          is_n_length_straight_at(hand, idxOfFiveFs, fs, 4)) {
-        return 1;
-      } else {
-        return 0;
-      }
-    } else {
-      return 0;
     }
   }
+  return 0;
 }
 
 int is_straight_at(deck_t *hand, size_t index, suit_t fs) {
-  if (is_n_length_straight_at(hand, index, fs, 5)) {
+  int currentCardValue = hand->cards[index]->value;
+  if (fs != NUM_SUITS && hand->cards[index]->suit != fs) {
+    return 0;
+  }
+  if (currentCardValue < 5) {
+    return 0;
+  }
+  if (currentCardValue == 5) {
+    if (hand->cards[0]->value != VALUE_ACE) {
+      return 0;
+    } else {
+      return is_ace_low_straight_at(hand, index, fs);
+    }
+  }
+
+  int straightTally = 1;
+  for (size_t i = index + 1; i < hand->n_cards; i++) {
+    if (straightTally == 5) {
+      return 1;
+    }
+    if (hand->cards[i]->value == currentCardValue) {
+      continue;
+    }
+    if (hand->cards[i]->value == currentCardValue - 1) {
+      if (fs == NUM_SUITS || hand->cards[i]->suit == fs) {
+        straightTally++;
+        currentCardValue--;
+      } else {
+        continue;
+      }
+    } else {
+      break;
+    }
+  }
+
+  if (straightTally == 5) {
     return 1;
   }
-  if (is_ace_low_straight_at(hand, index, fs)) {
-    return -1;
+  if (currentCardValue == VALUE_ACE) {
+    return is_ace_low_straight_at(hand, index, fs);
+  } else {
+    return 0;
   }
-  return 0;
 }
 
 hand_eval_t build_hand_from_match(deck_t *hand, unsigned n, hand_ranking_t what,
                                   size_t idx) {
 
   hand_eval_t ans;
+  ans.ranking = what;
+  for (size_t i = 0; i < n; i++) {
+    ans.cards[i]->value = hand->cards[i + idx]->value;
+  }
+  int nextIndex = n;
+  for (size_t i = 0; i < hand->n_cards; i++) {
+    if (nextIndex >= 5) {
+      break;
+    }
+    int isPartOfMatch = 0;
+    for (size_t j = 0; j < n; j++) {
+      if (hand->cards[idx + j]->value == hand->cards[i]->value) {
+        isPartOfMatch = 1;
+        break;
+      }
+    }
+    if (!isPartOfMatch) {
+      ans.cards[nextIndex] = hand->cards[i];
+      nextIndex++;
+    }
+  }
+
   return ans;
 }
 
-int compare_hands(deck_t *hand1, deck_t *hand2) { return 0; }
+int compare_hands(deck_t *hand1, deck_t *hand2) {
+  qsort(hand1->cards, hand1->n_cards, sizeof(card_t *), card_ptr_comp);
+  qsort(hand2->cards, hand2->n_cards, sizeof(card_t *), card_ptr_comp);
+  hand_eval_t hd1 = evaluate_hand(hand1);
+  hand_eval_t hd2 = evaluate_hand(hand2);
+
+  if (hd1.ranking != hd2.ranking) {
+    return hd2.ranking - hd2.ranking;
+  }
+
+  for (size_t i = 0; i < 5; i++) {
+    if (hd1.cards[i]->value == hd2.cards[i]->value) {
+      continue;
+    } else {
+      return hd1.cards[i]->value = hd2.cards[i]->value;
+    }
+  }
+
+  return 0;
+}
 
 // You will write this function in Course 4.
 // For now, we leave a prototype (and provide our
