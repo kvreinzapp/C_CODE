@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char **argv) {
   if (argc != 2) {
@@ -12,4 +13,5 @@ int main(int argc, char **argv) {
   while ((c = fgetc(file)) != EOF) {
     printf("%d", c);
   }
+  return EXIT_SUCCESS;
 }
